@@ -1,3 +1,4 @@
+-- Oo! Lasers!
 Lasers = {first = 0, last = -1}
 Lasers.mt = {__index = Lasers}
 
