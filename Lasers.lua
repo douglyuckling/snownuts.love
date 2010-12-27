@@ -5,8 +5,9 @@ function Lasers:new(o)
     o = o or {}
     setmetatable(o, Lasers.mt)
 
-    self._SPEED = 600
+    self._SPEED = 400
     self._LENGTH = 20
+	self._WIDTH = 8
 
     return o
 end

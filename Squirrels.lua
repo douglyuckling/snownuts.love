@@ -61,10 +61,15 @@ function Squirrels:update(dt)
         if squirrel then
             for j=lasers.first,lasers.last do
                 local laserPulse = lasers[j]
-                if (laserPulse.x < squirrel.x+self._WIDTH/2) and
+                if ((laserPulse.x < squirrel.x+self._WIDTH/2) and
                         (laserPulse.x > squirrel.x-self._WIDTH/2) and
-                        (laserPulse.y < squirrel.y+self._HEIGHT/2) and
-                        (laserPulse.y > squirrel.y-self._HEIGHT/2) then
+                        (laserPulse.y-Lasers._WIDTH/2 < squirrel.y+self._HEIGHT/2) and
+                        (laserPulse.y-Lasers._WIDTH/2 > squirrel.y-self._HEIGHT/2)) or
+						((laserPulse.x < squirrel.x+self._WIDTH/2) and
+                        (laserPulse.x > squirrel.x-self._WIDTH/2) and
+                        (laserPulse.y+Lasers._WIDTH/2 < squirrel.y+self._HEIGHT/2) and
+                        (laserPulse.y+Lasers._WIDTH/2 > squirrel.y-self._HEIGHT/2))
+						then
                     self[i] = nil
                 end
             end

@@ -27,7 +27,7 @@ function love.update(dt)
         lastLaserFireTime = currentTime
     end
     
-    if currentTime - lastSquirrelFireTime > 1 then
+    if currentTime - lastSquirrelFireTime > 2.5 then
 		squirrels:fire(Vector:new{x=0,y=math.random()*((bounds.highY-bounds.lowY)-150)+bounds.lowY+75})
         lastSquirrelFireTime = currentTime
     end
