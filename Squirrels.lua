@@ -33,7 +33,7 @@ function Squirrels:draw()
     
     love.graphics.setColor(255, 255, 255)
     
-    love.graphics.print("first: "..self.first.."  last: "..self.last, 20, 20)
+    --love.graphics.print("first: "..self.first.."  last: "..self.last, 20, 20)
 end
 
 function Squirrels:update(dt)

@@ -28,7 +28,7 @@ function love.update(dt)
     end
     
     if currentTime - lastSquirrelFireTime > 1 then
-		squirrels:fire(Vector:new{x=0,y=math.random()*(bounds.highY-bounds.lowY)+bounds.lowY})
+		squirrels:fire(Vector:new{x=0,y=math.random()*((bounds.highY-bounds.lowY)-150)+bounds.lowY+75})
         lastSquirrelFireTime = currentTime
     end
 

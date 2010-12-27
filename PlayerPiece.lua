@@ -105,7 +105,7 @@ function PlayerPiece:update(dt, bounds)
         local speedCoefficient = self._MAX_SPEED / speed
         self.velocity = self.velocity * speedCoefficient
     elseif speed == 0 then
-    elseif speed < self._MIN_SPEED then
+    elseif speed < self._MIN_SPEED and acceleration:length() == 0 then
         self.velocity = self.velocity * 0
     end
 
