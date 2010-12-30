@@ -1,20 +1,24 @@
 require "PlayerPiece"
 require "Lasers"
 require "Squirrels"
+require "Nuts"
 
 bounds = {lowX=0, highX=800, lowY=250, highY=600}
 lastLaserFireTime = -100
 lastSquirrelFireTime= -100
+lastNutFireTime = 0.5
 
 function love.load()
     playerPiece = PlayerPiece:new{position=Vector:new{x=400,y=425}, radius=25, bounds=bounds}
     lasers = Lasers:new()
     squirrels = Squirrels:new()
+	nuts = Nuts:new()
 end
 
 function love.draw()
     lasers:draw()
     squirrels:draw()
+	nuts:draw()
     playerPiece:draw()
 end
 
@@ -32,7 +36,13 @@ function love.update(dt)
         lastSquirrelFireTime = currentTime
     end
 
+    if currentTime - lastNutFireTime > 1.5 then
+		nuts:fire(Vector:new{x=bounds.highX+nuts._RADIUS,y=math.random()*(bounds.highY-bounds.lowY)+bounds.lowY})
+        lastNutFireTime = currentTime
+    end
+
     lasers:update(dt)
     squirrels:update(dt)
+	nuts:update(dt)
 end
 

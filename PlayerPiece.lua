@@ -15,6 +15,7 @@ function PlayerPiece:new(o)
     -- We required that radius and bounds have been set
     self.position = self.position or Vector:new()
     self.velocity = Vector:new()
+	self.collectedNuts = 0
     
     return o
 end
@@ -30,6 +31,8 @@ function PlayerPiece:draw()
     love.graphics.pop()
     love.graphics.pop()
     
+	love.graphics.print("nuts: "..self.collectedNuts, 20, 20)
+
     -- love.graphics.setColor(255,   0,   0)
     -- love.graphics.line(self.position.x,
                        -- self.position.y,
